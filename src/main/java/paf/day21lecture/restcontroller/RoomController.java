@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import paf.day21lecture.exception.ResourceNotFoundException;
 import paf.day21lecture.model.Room;
 import paf.day21lecture.service.RoomService;
 
+@Tag(description ="Room API", name ="Room Resources")
 @RequestMapping("/api/rooms")
 @RestController
 public class RoomController {
@@ -31,8 +33,11 @@ public class RoomController {
     @GetMapping("/count")
     public ResponseEntity<Integer> getRoomCount() {
         Integer roomCount = roomSvc.count();
+        // Another way to return the result is in the line of code directly below
+        // return new ResponseEntity<Integer>(roomCount, HttpStatus.OK);
         return ResponseEntity.ok().body(roomCount);
     }
+
 
     // Writing code to get all rooms
     @GetMapping
@@ -60,6 +65,9 @@ public class RoomController {
     @GetMapping("/{room-id}")
     public ResponseEntity<Room> getRoomById(@PathVariable("room-id") Integer id) {
         Room room = roomSvc.findById(id);
+        if (room == null) {
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.ok().body(room);
     }
 

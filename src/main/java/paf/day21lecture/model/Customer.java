@@ -11,12 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Customer {
 
+    // We didn't generate Getters and Setters because we used Lombok dependency in this exercise.
     private Integer id;
-    
     private String firstName;
-
     private String lastName;
-
     private Date dob;
     
 }

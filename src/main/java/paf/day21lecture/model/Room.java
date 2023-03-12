@@ -11,9 +11,7 @@ import lombok.NoArgsConstructor;
 public class Room {
     
     private Integer id;
-
     private String roomType;
-
     private Float price;
 
 }

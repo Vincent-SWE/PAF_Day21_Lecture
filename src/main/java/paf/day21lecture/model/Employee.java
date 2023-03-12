@@ -11,16 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Employee {
     
+    // We didn't generate Getters and Setters because we used Lombok dependency in this exercise.
     private Integer id;
-
     // firstName (Entity) --> map to --> first_name (mySQL)
     // firstname (entity) --> firstname(mySQL)
     private String firstName;
-
     private String lastName;
-
     private Integer salary;
-
     private List<Dependant> dependants;
 
 

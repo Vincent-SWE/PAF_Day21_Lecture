@@ -12,14 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Dependant {
     
+    // We didn't generate Getters and Setters because we used Lombok dependency in this exercise.
     private Integer id;
-    
     private String fullName;
-
     private String relationship;
-
     private Date birthDate;
-
     private Employee employee;;
 
 
